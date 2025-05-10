@@ -1,0 +1,105 @@
+# for MOTChallenge-Like dir structure
+# ${data_root}:
+#    |
+#    |___${train_folder_name}(Optional)
+#          |
+#          |____${seq_name}
+#                     |_______${image_folder}
+#                                    |____${frame_name}
+#                     |_______${gt_folder_name}
+#                                    |____${gt_txt_name}
+#    |___${test_folder_name}(Optional)
+#          |
+#          |____${seq_name}
+#                     |_______${image_folder}
+#                                    |____${frame_name}
+#                     |_______${gt_folder_name}
+#                                    |____${gt_txt_name}
+
+
+# track result MUST OBEY this strcture:
+# result:
+#    |
+#    |_____${train or test}(Optional)
+#                  |
+#                  |_____${tracker_name}(Optional)
+#                                |_______ ${seq_name}.txt
+
+
+gt_structure_config:
+  data_root: 'path to USVTrack'
+  benchmark: usvtrack
+  has_split: True
+  train_or_test: test
+  train_folder_name: train
+  test_folder_name: test
+  gt_folder_name: gt
+  gt_txt_name: 'gt.txt'  # gt.txt, {seq_name}.txt, etc.
+  gt_loc_format: '{data_root}/{split_name}/{seq_name}/{gt_folder_name}/{gt_txt_name}'
+
+tracker_structure_config:
+  trackers_folder: 'root path of track result'
+  has_split: True
+  split_name: usvtrack  # sub path (like dataset name)
+  has_tracker_name: True
+  trackers_to_eval:   # None for all trackers
+
+
+# other options
+OUTPUT_FOLDER: 'path to save eval result'   # Where to save eval results (if None  same as TRACKERS_FOLDER)
+
+SEQ_INFO:  # seq_name: seq_length
+  'sequence_2': 645
+  'sequence_4': 249
+  'sequence_7': 70
+  'sequence_11': 47
+  'sequence_12': 33
+  'sequence_13': 30
+  'sequence_15': 172
+  'sequence_17': 127
+  'sequence_19': 452
+  'sequence_21': 162
+  'sequence_23': 217
+  'sequence_25': 333
+  'sequence_27': 224
+
+# CLASS configs
+CLASSES_TO_EVAL:
+  - 'boat'
+  - 'rowboat'
+  - 'duckboat'
+  - 'speedboat'
+  - 'yacht'
+  - 'cruise'
+  - 'oceanLiner'
+
+CLASS_NAME_TO_CLASS_ID:
+  'boat': 1
+  'rowboat': 2
+  'duckboat': 3
+  'speedboat': 4
+  'yacht': 5
+  'cruise': 6
+  'oceanLiner': 7
+  'aquaplane': 8
+  'buoy': 9
+  'person': 10
+  'disruptors': 11
+  'reflection': 12
+  'building': 13
+  'occlusion': 14
+  'shine': 15
+
+VALID_CLASS:
+  'boat': 1
+  'rowboat': 2
+  'duckboat': 3
+  'speedboat': 4
+  'yacht': 5
+  'cruise': 6
+  'oceanLiner': 7
+
+DISTRACTOR_CLASSES_NAMES:
+  - 'disruptors'
+  - 'reflection'
+  - 'building'
