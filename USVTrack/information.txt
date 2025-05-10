@@ -1,0 +1,7 @@
+Inland Surface Scene:
+train/sequence_3
+test/sequence_12
+
+Marine Surface Scene:
+train/sequence_16
+test/sequence_23

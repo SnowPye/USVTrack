@@ -47,6 +47,7 @@ The USVTrack dataset is organized as follows:
 |   |-- test
 |   |   |-- ...
 |   |-- label.txt
+|   |-- information.txt
 ~~~
 
 ### Dataset Annotation Format
